@@ -1,0 +1,173 @@
+﻿<Page x:Class="PolyPaint.Vues.WaitingLobbyClassic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ctr="clr-namespace:PolyPaint.Controls" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" Foreground="{DynamicResource PrimaryHueMidBrush}" 
+        Title="ChatBox">
+    <Grid Height="Auto" Width="Auto" Background="#DEE7E7" x:Name="MatchView" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+                Click="LeaveButton"
+                Grid.Column="4"
+                Margin="0 10 10 0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Foreground="{DynamicResource PrimaryHueMidBrush}"
+                MinWidth="30" MinHeight="30"
+                BorderThickness="0"
+                Padding="5 0">
+            <materialDesign:PackIcon x:Name="soundCheck" MinWidth="30" MinHeight="30" Kind="ArrowLeft"/>
+        </Button>
+        
+        <StackPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+           
+
+            <StackPanel Margin="0 20 0 40" Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Text="Classic Mode" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+                <Separator/>
+
+                <Border Background="{DynamicResource PrimaryHueMidBrush}" Margin="0 20" CornerRadius="8" BorderThickness="2" BorderBrush="Black">
+                    <StackPanel >
+                        <TextBlock FontSize="18" FontStyle="Italic" HorizontalAlignment="Center" Foreground="White" Padding="10 10" Text="Game name"/>
+                        <Separator Background="Black"/>
+                        <TextBlock FontSize="18" Text="{Binding name}" FontWeight="Bold" Padding="10 10" Foreground="White" FontFamily="Franklin Gothic" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryHueMidBrush}" Margin="0 20" CornerRadius="8"  BorderThickness="2" BorderBrush="Black">
+                    <StackPanel >
+                        <TextBlock FontSize="18" FontStyle="Italic" HorizontalAlignment="Center" Foreground="White" Padding="10 10" Text="Number of rounds"/>
+                        <Separator Background="Black"/>
+                        <TextBlock FontSize="18" Text="{Binding Path=nbRounds}" FontWeight="Bold" Padding="10 10" Foreground="White"  FontFamily="Franklin Gothic" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <Image Margin="0 0 0 80" Width="50" VerticalAlignment="Center" Source="/Resources/vs.png"/>
+
+            <ctr:CircularProgressBar x:Name="progressBar"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Margin="18, 5" />
+            <TextBlock HorizontalAlignment="Center" Margin="0 10 0 0" Foreground="{DynamicResource PrimaryHueMidBrush}" Text="Waiting for players"/>
+            <Button Margin="0 50" HorizontalAlignment="Center" Click="ReadyButtonAction" Visibility="Hidden" x:Name="ReadyButton">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="readyTxt" Text="Ready"/>
+                    <materialDesign:PackIcon x:Name="readyIconBtn" Kind="Circle" Margin="6 2 0 0" Foreground="LightGreen"/>
+                </StackPanel>
+            </Button>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Team A" FontWeight="Bold" FontSize="15" Foreground="#3463A3"  HorizontalAlignment="Center" />
+            <Separator x:Name="separator" Background="#3463A3" Margin="0 10 0 20" Width="250"/>
+            <Border x:Name="borderA" BorderBrush="#3463A3" BorderThickness="2" CornerRadius="5">
+                    <ItemsControl Name="teamAView">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
+                                    <materialDesign:PackIcon x:Name="_readyIcon" Kind="Circle" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Margin="0 3 5 0" Height="15" Width="15" Visibility="Visible"/>
+                                    <TextBlock TextAlignment="Center" Width="120" TextWrapping="Wrap" x:Name="_NameLabel" HorizontalAlignment="Center" Foreground="Black" FontSize="15" Text="{Binding name}"/>
+                                    </WrapPanel>
+                                    <Button 
+                                        Click="RemoveBotA"  x:Name="RemoveBotA" Visibility="Collapsed"
+                                        HorizontalAlignment="Center"
+                                        Background="Transparent"
+                                        MinWidth="30" MinHeight="30"
+                                        BorderThickness="0"
+                                        Padding="0"  
+                                        Foreground="White">
+                                        <materialDesign:PackIcon Foreground="Red" MinWidth="30" MinHeight="30" Kind="Close"/>
+                                    </Button>
+                                <Separator FontWeight="Bold" Width="{Binding Path=ActualWidth, ElementName=borderA}" HorizontalAlignment="Center" Foreground="Red"/>
+                            </StackPanel>
+                                <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding isBot}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" TargetName="RemoveBotA"/>
+                                        <Setter Property="Width" Value="120" TargetName="_NameLabel"/>
+                                </DataTrigger>
+                                    <DataTrigger Binding="{Binding isCreator}" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold" TargetName="_NameLabel"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding isReady}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" TargetName="_readyIcon"/>
+                                        <Setter Property="Foreground" Value="#7de057" TargetName="_readyIcon"/>
+                                </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+            </Border>
+
+            <Button FontWeight="Bold"  HorizontalAlignment="Center" x:Name="AddBotA" Click="AddAITeamA" Width="auto" Background="Transparent" 
+                     Foreground="DarkGreen" BorderThickness="0" Margin="0 15 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Add Bot"/>
+                    <materialDesign:PackIcon Foreground="DarkGreen" Kind="Plus"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Team B" FontWeight="Bold" FontSize="15" Foreground="#A62700"  HorizontalAlignment="Center" />
+            <Separator x:Name="separatorB" Background="#A62700" Margin="0 10 0 20" Width="250"/>
+            <Border x:Name="borderB" BorderBrush="#A62700" BorderThickness="2" CornerRadius="5">
+                <ItemsControl Name="teamBView">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
+                                    <materialDesign:PackIcon x:Name="_readyIcon" Kind="Circle" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Margin="0 3 5 0" Height="15" Width="15" Visibility="Visible"/>
+                                    <TextBlock TextAlignment="Center" Width="120" TextWrapping="Wrap" x:Name="_NameLabel" HorizontalAlignment="Center" Foreground="Black" FontSize="15" Text="{Binding name}"/>
+                                </WrapPanel>
+                                <Button 
+                                        Click="RemoveBotB"  x:Name="RemoveBotB" Visibility="Collapsed"
+                                        HorizontalAlignment="Center"
+                                        Background="Transparent"
+                                        MinWidth="30" MinHeight="30"
+                                        BorderThickness="0"
+                                        Padding="0"  
+                                        Foreground="White">
+                                    <materialDesign:PackIcon Foreground="Red" MinWidth="30" MinHeight="30" Kind="Close"/>
+                                </Button>
+                                <Separator FontWeight="Bold" Width="{Binding Path=ActualWidth, ElementName=borderB}" HorizontalAlignment="Center" Foreground="Red"/>
+                            </StackPanel>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding isBot}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" TargetName="RemoveBotB"/>
+                                    <Setter Property="Width" Value="120" TargetName="_NameLabel"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding isCreator}" Value="True">
+                                    <Setter Property="FontWeight" Value="Bold" TargetName="_NameLabel"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding isReady}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" TargetName="_readyIcon"/>
+                                    <Setter Property="Foreground" Value="#7de057" TargetName="_readyIcon"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+
+            <Button FontWeight="Bold"  HorizontalAlignment="Center" x:Name="AddBotB" Click="AddAITeamB" Width="auto" Background="Transparent" 
+                     Foreground="DarkGreen" BorderThickness="0" Margin="0 15 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Add Bot"/>
+                    <materialDesign:PackIcon Foreground="DarkGreen" Kind="Plus"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

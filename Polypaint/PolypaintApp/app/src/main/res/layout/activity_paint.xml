@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".PaintActivity">
+
+
+    <com.divyanshu.draw.widget.DrawView
+        android:id="@+id/draw_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@id/draw_tools2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </com.divyanshu.draw.widget.DrawView>
+
+    <com.madrapps.pikolo.RGBColorPicker
+        android:id="@+id/color_picker2"
+        android:layout_width="224dp"
+        android:layout_height="208dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/draw_tools2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.madrapps.pikolo.RGBColorPicker>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/save_image2"
+        android:layout_width="79dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#FA636060"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <SeekBar
+        android:id="@+id/seekBar_width2"
+        android:layout_width="228dp"
+        android:layout_height="80dp"
+        android:elevation="5dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:progress="50"
+        app:layout_constraintBottom_toTopOf="@+id/draw_tools2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/draw_tools2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/activateDraw2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:src="@drawable/edit2"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/stroke_change_square2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:src="@drawable/material_drawer_circle_mask"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/image_effaceTrait2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/material_drawer_rectangle_mask"
+            tools:srcCompat="@drawable/material_drawer_rectangle_mask" />
+
+        <ImageView
+            android:id="@+id/stroke_change_round2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="TODO"
+            android:padding="16dp"
+            android:src="@drawable/material_drawer_rectangle_mask"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintStart_toEndOf="@+id/image_effaceTrait2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/material_drawer_rectangle_mask"
+            tools:srcCompat="@drawable/material_drawer_circle_mask" />
+
+        <ImageView
+            android:id="@+id/image_effaceTrait2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="TODO"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_eraser_black_24dp"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintStart_toEndOf="@+id/image_draw_eraser2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_eraser2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="16dp"
+            android:src="@drawable/eraser"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintStart_toEndOf="@+id/activateDraw2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_width2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="TODO"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_adjust_black_24dp"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/stroke_change_round2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/image_draw_color2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_color_lens_black_24dp"
+            android:tint="@color/icon_color_selector"
+            app:layout_constraintStart_toEndOf="@id/image_draw_width2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

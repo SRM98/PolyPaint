@@ -1,0 +1,56 @@
+﻿<Page x:Class="PolyPaint.Vues.ChatArea"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PolyPaint.Vues"
+      mc:Ignorable="d" 
+      Title="Rooms">
+
+    <Grid Background="#FFB3B7FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="50" />
+            <ColumnDefinition  Width="100" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Chat" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="10"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Grid.Column="0" Name="roomsArea" Background="Blue">
+            <ScrollViewer Name="_scrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ItemsControl Name="roomsList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                    <!--LISTE DE ROOMS-->
+                                </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Frame x:Name="chatBox"/>
+        </Grid>
+        <!--<Frame Grid.Row="0" Grid.Column="0" Background="#FF55588F"/>
+        <Grid Grid.Row="1" Grid.Column="0" Background="#FF55588F">
+            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Background="#FF55588F"/>
+        </Grid>
+        
+        <Grid Grid.Row="0" Grid.Column="1" Background="#FF3C5E9B" >
+            <Label Content="Chat" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <Frame Grid.Row="1" Grid.Column="1" x:Name="chatBox"/>-->
+    </Grid>
+</Page>

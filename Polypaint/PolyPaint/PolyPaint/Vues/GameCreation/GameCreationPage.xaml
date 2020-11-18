@@ -1,0 +1,25 @@
+﻿<Page x:Class="PolyPaint.Vues.GameCreationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PolyPaint.Vues"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GameCreationPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="White" Grid.ColumnSpan="3" Opacity="0.5"/>
+        <Button Grid.Column="0" Content="Draw" 
+                Click="drawChoice"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
+        <Button Grid.Column="1" 
+                Click="assistedChoice"
+                Content="Search image/Upload" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" />
+    </Grid>
+</Page>

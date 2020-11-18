@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph_game_modes"
+    app:startDestination="@id/fragment_Game_modes">
+
+    <fragment
+        android:id="@+id/fragment_sprint_coop"
+        android:name="com.example.polypaintapp.fragment_sprint_coop"
+        android:label="fragment_sprint_coop" >
+        <action
+            android:id="@+id/action_fragment_sprint_coop_to_fragment_CreateMatch"
+            app:destination="@id/fragment_CreateMatch"
+            app:popUpTo="@+id/fragment_sprint_coop" />
+        <action
+            android:id="@+id/action_fragment_sprint_coop_to_fragment_WaitingRoom"
+            app:destination="@id/fragment_WaitingRoom"
+            app:popUpTo="@+id/fragment_DesignClassic" />
+        <action
+            android:id="@+id/action_fragment_sprint_coop_to_nav_graph_chat"
+            app:destination="@id/nav_graph_chat"
+            app:popUpTo="@+id/fragment_sprint_coop" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_classique"
+        android:name="com.example.polypaintapp.fragment_classique"
+        android:label="fragment_classique" >
+        <action
+            android:id="@+id/action_fragment_classique_to_fragment_CreateMatch"
+            app:destination="@id/fragment_CreateMatch"
+            app:popUpTo="@+id/fragment_classique" />
+        <action
+            android:id="@+id/action_fragment_classique_to_fragment_WaitingRoom"
+            app:destination="@id/fragment_WaitingRoom"
+            app:popUpTo="@+id/fragment_DesignClassic" />
+        <action
+            android:id="@+id/action_fragment_classique_to_nav_graph_chat"
+            app:destination="@id/nav_graph_chat"
+            app:popUpTo="@+id/fragment_classique" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Game_modes"
+        android:name="com.example.polypaintapp.Fragment_Game_modes"
+        android:label="Fragment_Game_modes" >
+        <action
+            android:id="@+id/action_fragment_Game_modes_to_fragment_classique"
+            app:destination="@id/fragment_classique"
+            app:popUpTo="@+id/fragment_Game_modes" />
+        <action
+            android:id="@+id/action_fragment_Game_modes_to_fragment_sprint_coop"
+            app:destination="@id/fragment_sprint_coop"
+            app:popUpTo="@+id/fragment_Game_modes" />
+        <action
+            android:id="@+id/action_fragment_Game_modes_to_fragment_Duel"
+            app:destination="@id/fragment_Duel"
+            app:popUpTo="@+id/fragment_Game_modes" />
+        <action
+            android:id="@+id/action_fragment_Game_modes_to_nav_graph_chat"
+            app:destination="@id/nav_graph_chat"
+            app:popUpTo="@+id/fragment_Game_modes" />
+        <action
+            android:id="@+id/action_fragment_Game_modes_to_fragment_Inmatch"
+            app:destination="@id/fragment_Inmatch"
+            app:popUpTo="@+id/fragment_DesignClassic" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Duel"
+        android:name="com.example.polypaintapp.Fragment_Duel"
+        android:label="Fragment_Duel" >
+        <action
+            android:id="@+id/action_fragment_Duel_to_fragment_CreateMatch"
+            app:destination="@id/fragment_CreateMatch"
+            app:popUpTo="@+id/fragment_Duel" />
+        <action
+            android:id="@+id/action_fragment_Duel_to_fragment_WaitingRoom"
+            app:destination="@id/fragment_WaitingRoom"
+            app:popUpTo="@+id/fragment_DesignClassic" />
+        <action
+            android:id="@+id/action_fragment_Duel_to_nav_graph_chat"
+            app:destination="@id/nav_graph_chat"
+            app:popUpTo="@+id/fragment_Duel" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_CreateMatch"
+        android:name="com.example.polypaintapp.Fragment_CreateMatch"
+        android:label="Fragment_CreateMatch" >
+        <action
+            android:id="@+id/action_fragment_CreateMatch_to_fragment_WaitingRoom"
+            app:destination="@id/fragment_WaitingRoom"
+            app:popUpTo="@+id/fragment_DesignClassic" />
+        <action
+            android:id="@+id/action_fragment_CreateMatch_to_nav_graph_chat"
+            app:destination="@id/nav_graph_chat"
+            app:popUpTo="@+id/fragment_CreateMatch" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_WaitingRoom"
+        android:name="com.example.polypaintapp.Fragment_WaitingRoom"
+        android:label="Fragment_WaitingRoom" >
+        <action
+            android:id="@+id/action_fragment_WaitingRoom_to_fragment_Inmatch"
+            app:destination="@id/fragment_Inmatch"
+            app:popUpTo="@+id/fragment_DesignClassic" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Inmatch"
+        android:name="com.example.polypaintapp.Fragment_Inmatch"
+        android:label="Fragment_Inmatch" />
+    <fragment
+        android:id="@+id/fragment_DesignClassic"
+        android:name="com.example.polypaintapp.Fragment_DesignClassic"
+        android:label="Fragment_DesignClassic" />
+    <fragment
+        android:id="@+id/fragment_DesginDuel"
+        android:name="com.example.polypaintapp.Fragment_DesginDuel"
+        android:label="Fragment_DesginDuel" />
+    <fragment
+        android:id="@+id/fragment_DesignCoop"
+        android:name="com.example.polypaintapp.Fragment_DesignCoop"
+        android:label="Fragment_DesignCoop" />
+    <fragment
+        android:id="@+id/fragment_DesignSolo"
+        android:name="com.example.polypaintapp.Fragment_DesignSolo"
+        android:label="Fragment_DesignSolo" />
+    <include app:graph="@navigation/nav_graph_chat" />
+</navigation>

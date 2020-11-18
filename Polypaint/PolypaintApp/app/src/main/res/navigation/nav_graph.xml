@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentSignIn">
+    <fragment
+        android:id="@+id/fragmentSignIn"
+        android:name="com.example.polypaintapp.FragmentSignIn"
+        android:label="FragmentSignIn" >
+        <action
+            android:id="@+id/action_fragmentSignIn_to_fragmentSignUp"
+            app:destination="@id/fragmentSignUp" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSignUp"
+        android:name="com.example.polypaintapp.FragmentSignUp"
+        android:label="FragmentSignUp" >
+        <action
+            android:id="@+id/action_fragmentSignUp_to_fragmentSignIn"
+            app:destination="@id/fragmentSignIn" />
+        <action
+            android:id="@+id/action_fragmentSignUp_to_fragmentFreeDraw"
+            app:destination="@+id/fragmentFreeDraw" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFreeDraw"
+        android:name="com.example.polypaintapp.FragmentFreeDraw"
+        android:label="FragmentFreeDraw" >
+        <action
+            android:id="@+id/action_fragmentFreeDraw_to_fragmentSignUp"
+            app:destination="@id/fragmentSignUp" />
+    </fragment>
+</navigation>

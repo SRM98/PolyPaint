@@ -1,0 +1,119 @@
+﻿<Page x:Class="PolyPaint.Vues.Lobby"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:PolyPaint.Vues"
+      mc:Ignorable="d"
+      Title="Lobby">
+
+    <Grid>
+        <Grid Background="#efefef" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" MinHeight="650" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="200" />
+                <ColumnDefinition  Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="haze"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="2" 
+                  Visibility="Hidden"
+                  Canvas.ZIndex="1">
+                <Rectangle Fill="White" Opacity="0.5"/>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0" Background="#272727" >
+                <Label Content="Lascaux" HorizontalAlignment="Center" FontSize="30" Foreground="#f0f0ff" FontFamily="Calibri" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" Background="#404040" VerticalAlignment="Top"  Height="70">
+                <Label x:Name="CurrentSection" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#f0f0f0" FontSize="20"/>
+                <Rectangle Width="800" Margin="0,0,60,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" >
+                    <Button x:Name="ChatDetachedButton" Content="Detach chat" Click="DetachChat"/>
+                    <!--<Button x:Name="ChatVisibilityButton" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Hide Chat" Click="ChangeViewChat"  Margin="10,0,0,0"/>-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="auto" Height="1"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="#4a4a4a">
+                <StackPanel x:Name="MenuStack" Height="auto" VerticalAlignment="Top" Width="auto">
+                    <ListView x:Name="ListViewMenu"
+                              Foreground="White" 
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              SelectionChanged="ListViewMenu_SelectionChanged"
+                              SelectedIndex="0"
+                              SelectionMode="Single">
+                        <ListViewItem x:Name="Multiplayer" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Multiplayer" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="Singleplayer" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Singleplayer" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="FreeDraw" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Free Draw" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="GameCreation" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Game Creation" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60" x:Name="MyAccount">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="My Account" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                    <Button Margin="44,40,44,0" Content="Sign Out" Click="SignOut"/>
+                </StackPanel>
+                <StackPanel  VerticalAlignment="Bottom" Margin="10,0,10,10">
+                    <Button 
+                            Click="changeSound"
+                            HorizontalAlignment="Center"
+                            Margin="0 0 0 15"
+                            Background="Transparent"
+                            MinWidth="30" MinHeight="30"
+                            BorderThickness="0"
+                            Padding="5 0"  
+                            Foreground="White">
+                        <materialDesign:PackIcon x:Name="soundCheck" MinWidth="30" MinHeight="30" Kind="VolumeOff"/>
+                    </Button>
+                    <Button Content="Help?" Click="openTutorial" Width="auto" Background="Transparent" BorderThickness="0" Margin="0 0 0 5"></Button>
+                    <Button Content="Quit" Click="quitApp" Width="auto" Background="Transparent" FontWeight="Bold" FontSize="18" Foreground="#e05046" BorderThickness="0"></Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Frame NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="MainView" Grid.Row="0" Grid.Column="0"/>
+                <Frame HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" 
+                       x:Name="Chat" 
+                       NavigationUIVisibility="Hidden" 
+                       Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+        </Grid>
+
+        <Grid Canvas.ZIndex="2" x:Name="tutorialPopup" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Frame x:Name="tutorialView" NavigationUIVisibility="Hidden"></Frame>
+        </Grid>
+    </Grid>
+
+</Page>

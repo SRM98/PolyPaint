@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph_lobby"
+    >
+
+<!--    <fragment-->
+<!--        android:id="@+id/fragmentChannel"-->
+<!--        android:name="com.example.polypaintapp.FragmentChannel"-->
+<!--        android:label="FragmentChannel" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_fragmentChannel_to_fragmentChat"-->
+<!--            app:destination="@id/fragmentChat" />-->
+<!--    </fragment>-->
+<!--    <fragment-->
+<!--        android:id="@+id/fragmentChat"-->
+<!--        android:name="com.example.polypaintapp.FragmentChat"-->
+<!--        android:label="FragmentChat" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_fragmentChat_to_fragmentChannel"-->
+<!--            app:destination="@id/fragmentChannel" />-->
+<!--    </fragment>-->
+
+</navigation>

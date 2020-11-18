@@ -1,0 +1,119 @@
+﻿<Page x:Class="PolyPaint.Vues.AccountInfos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:PolyPaint.Vues"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AccountInfos">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            
+            <materialDesign:Card MinHeight="300" MinWidth="300" Margin="0 0 100 0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
+                <StackPanel UseLayoutRounding="True" Orientation="Vertical" Margin="16">
+                    <TextBlock HorizontalAlignment="Center" FontSize="26" FontWeight="Bold">Infos</TextBlock>
+                    <Separator/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="22" FontStyle="Italic" FontWeight="Light" Foreground="Beige" Margin="0 15 0 5" Text="{Binding username}"/>
+                    <Image x:Name="Avatar" Width="150" Height="150" Source="/Resources/defaultAvatar.png">
+                        <Image.Effect>
+                            <DropShadowEffect Color="Black" BlurRadius="10"></DropShadowEffect>
+                        </Image.Effect>
+                    </Image>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"  Margin="0 0 0 15">
+                        <TextBlock Margin="0 10"  FontSize="16">Avatar</TextBlock>
+                        <Button Tag="avatar"  Content="{materialDesign:PackIcon Kind=UserEdit}"
+                            Click="openEditWindow"
+                            Background="Transparent" 
+                            BorderThickness="0"
+                            Padding="5 0"
+                            Foreground="White"/>
+                    </StackPanel>
+                    <Border HorizontalAlignment="Center" Background="AntiqueWhite" CornerRadius="10" BorderThickness="2" BorderBrush="Black">
+                        <TextBlock FontSize="16" FontWeight="Bold" Foreground="Black" Padding="5 1" Text="{Binding firstName}"/>
+                    </Border>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"  Margin="0 0 0 15">
+                        <TextBlock Margin="0 10"  FontSize="16">First name</TextBlock>
+                        <Button Tag="firstName"  Content="{materialDesign:PackIcon Kind=UserEdit}"
+                            Click="openEditWindow"
+                            Background="Transparent" 
+                            BorderThickness="0"
+                            Padding="5 0"
+                            Foreground="White"/>
+                    </StackPanel>
+                    <Border HorizontalAlignment="Center" Background="AntiqueWhite" CornerRadius="10" BorderThickness="2" BorderBrush="Black">
+                        <TextBlock FontSize="16" FontWeight="Bold" Foreground="Black" Padding="5 1" Text="{Binding lastName}"/>
+                    </Border>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"  Margin="0 0 0 15">
+                        <TextBlock Margin="0 10"  FontSize="16">Last name</TextBlock>
+                        <Button Tag="lastName"  Content="{materialDesign:PackIcon Kind=UserEdit}"
+                            Click="openEditWindow"
+                            Background="Transparent" 
+                            BorderThickness="0"
+                            Padding="5 0"
+                            Foreground="White"/>
+                    </StackPanel>
+                    <Button Tag="password" Click="openEditWindow" Margin="0 10 0 10" x:Name="editButton" HorizontalAlignment="Center"  VerticalAlignment="Center" Content="Edit password"/>
+                </StackPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card FontSize="14" MinHeight="300" MinWidth="300" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
+                <StackPanel Orientation="Vertical" Margin="16">
+                    <TextBlock HorizontalAlignment="Center" FontSize="26" FontWeight="Bold">Stats</TextBlock>
+                    <Separator/>
+                    <StackPanel UseLayoutRounding="True" Margin="0 35 0 45" HorizontalAlignment="Center">
+                        <StackPanel.Effect>
+                            <DropShadowEffect/>
+                        </StackPanel.Effect>
+                        <Border Background="#5687d4" CornerRadius="8" BorderThickness="1" BorderBrush="#084878">
+                            <StackPanel>
+                                <TextBlock Foreground="White" Padding="10 5" Margin="5,0,5,0"  Text="Number of games played"/>
+                                <Separator Background="Black"/>
+                                <TextBlock x:Name="NbGames" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Padding="5 5" Text="0"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel UseLayoutRounding="True" Margin="0 0 0 45" HorizontalAlignment="Center">
+                        <StackPanel.Effect>
+                            <DropShadowEffect />
+                        </StackPanel.Effect>
+                        <Border Background="#4f8255" CornerRadius="8" BorderThickness="1" BorderBrush="#18541f">
+                            <StackPanel>
+                                <TextBlock Foreground="White" Padding="10 5" Text="Win rate"/>
+                                <Separator Background="Black"/>
+                                <TextBlock x:Name="WinRate" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Padding="5 5" Text="0 %"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel UseLayoutRounding="True" Margin="0 0 0 45" HorizontalAlignment="Center">
+                        <StackPanel.Effect>
+                            <DropShadowEffect />
+                        </StackPanel.Effect>
+                        <Border Background="#f5930a" CornerRadius="8" BorderThickness="1" BorderBrush="#cf7902">
+                            <StackPanel>
+                                <TextBlock Foreground="White" Padding="10 5" Text="Average game duration"/>
+                                <Separator Background="Black"/>
+                                <TextBlock x:Name="AverageGameTime" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Padding="5 5" Text="0 min"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel UseLayoutRounding="True" Margin="0 0 0 45" HorizontalAlignment="Center">
+                        <StackPanel.Effect>
+                            <DropShadowEffect />
+                        </StackPanel.Effect>
+                        <Border Background="#c23434" CornerRadius="8" BorderThickness="1" BorderBrush="#6e140f">
+                            <StackPanel>
+                                <TextBlock Foreground="White" Padding="10 5" Text="Total time spent in-game"/>
+                                <Separator Background="Black"/>
+                                <TextBlock x:Name="TotalGameTime" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Padding="5 5" Text="0 min"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:Card>
+            
+        </StackPanel>
+    </Grid>
+</Page>

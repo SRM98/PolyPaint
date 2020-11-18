@@ -1,0 +1,96 @@
+Listening ... 
+Map { 'sadik' => undefined }
+getaccount: sadik
+client connected
+client disconnected
+Map { 'sadik' => undefined }
+getaccount: sadik
+client connected
+getRooms
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getMessageRoom: test
+getRooms
+getRooms
+getMessageRoom: test
+getRooms
+getRooms
+client disconnected
+client connected
+client disconnected
+Map { 'sadik' => undefined }
+getaccount: sadik
+client connected
+Map { 'sadik' => undefined }
+getaccount: sadik
+{ avatar: 'avatar',
+  firstName: 'tuuur',
+  lastName: 'tuuur',
+  password: 'tuuur1',
+  sound: 'Sound',
+  statsId: 'statsId',
+  username: 'tuuur' }
+{ avatar: 'avatar',
+  firstName: 'tuuur',
+  lastName: 'tuuur',
+  password: 'tuuur1',
+  sound: 'Sound',
+  statsId: 'statsId',
+  username: 'tuuur' }
+getaccount: tuuur
+addAccount: tuuur
+client disconnected
+{ avatar: 'avatar',
+  firstName: 'sadik2',
+  lastName: 'sadik2',
+  password: 'sadik2',
+  sound: 'Sound',
+  statsId: 'statsId',
+  username: 'sadik2' }
+{ avatar: 'avatar',
+  firstName: 'sadik2',
+  lastName: 'sadik2',
+  password: 'sadik2',
+  sound: 'Sound',
+  statsId: 'statsId',
+  username: 'sadik2' }
+getaccount: sadik2
+addAccount: sadik2
+Map { 'sadik' => undefined, 'sadik2' => undefined }
+getaccount: sadik2
+client connected

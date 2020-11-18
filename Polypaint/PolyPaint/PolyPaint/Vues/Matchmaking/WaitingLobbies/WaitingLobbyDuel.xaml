@@ -1,0 +1,75 @@
+﻿<Page x:Class="PolyPaint.Vues.WaitingLobbyDuel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ctr="clr-namespace:PolyPaint.Controls" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" Foreground="{DynamicResource PrimaryHueMidBrush}"
+        Title="ChatBox">
+    <Grid Height="Auto" Width="Auto" Background="#DEE7E7" x:Name="MatchView" >
+        <Button 
+                Click="LeaveButton"
+                Grid.Column="4"
+                Margin="0 10 10 0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Foreground="{DynamicResource PrimaryHueMidBrush}"
+                MinWidth="30" MinHeight="30"
+                BorderThickness="0"
+                Padding="5 0">
+            <materialDesign:PackIcon x:Name="soundCheck" MinWidth="30" MinHeight="30" Kind="ArrowLeft"/>
+        </Button>
+
+        <StackPanel Margin="0 15 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="Duel Mode" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+            <Separator/>
+
+            <Border Background="{DynamicResource PrimaryHueMidBrush}" Margin="0 20" CornerRadius="8" BorderThickness="2" BorderBrush="Black">
+                <StackPanel >
+                    <TextBlock FontSize="18" FontStyle="Italic" HorizontalAlignment="Center" Foreground="White" Padding="10 10" Text="Game name"/>
+                    <Separator Background="Black"/>
+                    <TextBlock FontSize="18" Text="{Binding name}" FontWeight="Bold" Padding="10 10" Foreground="White" FontFamily="Franklin Gothic" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border Background="{DynamicResource PrimaryHueMidBrush}" Margin="0 20 0 0" CornerRadius="8"  BorderThickness="2" BorderBrush="Black">
+                <StackPanel >
+                    <TextBlock FontSize="18" FontStyle="Italic" HorizontalAlignment="Center" Foreground="White" Padding="10 10" Text="Number of rounds"/>
+                    <Separator Background="Black"/>
+                    <TextBlock FontSize="18" Text="{Binding Path=nbRounds}" FontWeight="Bold" Padding="10 10" Foreground="White"  FontFamily="Franklin Gothic" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon x:Name="_readyIcon1" Kind="Circle" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Margin="0 3 5 0" Height="15" Width="15"/>
+                <TextBlock x:Name="player1" FontSize="25"  HorizontalAlignment="Center" />
+            </WrapPanel>
+           
+            <Image Margin="25 0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Resources/vs.png"/>
+
+            <WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon x:Name="_readyIcon2"  Visibility="Collapsed" Kind="Circle" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Margin="0 3 5 0" Height="15" Width="15"/>
+                <TextBlock x:Name="player2" FontSize="25" HorizontalAlignment="Center" />
+            </WrapPanel>
+        </StackPanel>
+
+        <StackPanel Margin="0 0 0 10" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <ctr:CircularProgressBar x:Name="progressBar"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Margin="18, 5" />
+            <TextBlock HorizontalAlignment="Center" Margin="0 10 0 0" Foreground="{DynamicResource PrimaryHueMidBrush}" Text="Waiting for players"/>
+            <Button Margin="0 50" HorizontalAlignment="Center" Visibility="Hidden" Click="ReadyButtonAction" x:Name="ReadyButton">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="readyTxt" Text="Ready"/>
+                    <materialDesign:PackIcon x:Name="readyIconBtn" Kind="Circle" Margin="6 2 0 0" Foreground="#7de057"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        
+    </Grid>
+</Page>

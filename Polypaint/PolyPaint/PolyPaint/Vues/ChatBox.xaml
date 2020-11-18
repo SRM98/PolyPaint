@@ -1,0 +1,81 @@
+﻿<Page x:Class="PolyPaint.Vues.ChatBox"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:PolyPaint.Vues"
+      mc:Ignorable="d" 
+        Title="ChatBox">
+
+    <Grid x:Name="chatbox" Height="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Name="MessageArea">
+            <ScrollViewer Margin="0 0 0 15" Name="_scrollViewer" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+
+                <ItemsControl Name="messagesList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid x:Name="message" HorizontalAlignment="Right">
+                                    <Grid HorizontalAlignment="Left"  Margin="0 18 0 0">
+                                        <StackPanel x:Name="FullMessage" Orientation="Horizontal">
+                                            <StackPanel Orientation="Vertical" Margin="0 12 10 0">
+                                                <Border x:Name="chatborder" HorizontalAlignment="Left" Background="{StaticResource PrimaryHueDarkBrush}" CornerRadius="15 15 0 15">
+                                                    <TextBlock x:Name="textMessage" Margin="15" TextWrapping="Wrap" MaxWidth="190" Text="{Binding text}" Foreground="White"/>
+                                                </Border>
+                                                <TextBlock x:Name="timestamp" HorizontalAlignment="Right" Text="{Binding time}" FontSize="9"/>
+                                            </StackPanel>
+                                            <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                                                <Ellipse x:Name="avatar" Height="50" Width="50">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush ImageSource="{Binding senderAvatarUrl}" Stretch="UniformToFill"/>
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
+                                                <TextBlock x:Name="sender" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" MaxWidth="70" FontWeight="Bold" FontStyle="Oblique" Margin="0 5 0 0" Text="{Binding sender}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding senderIsMe}" Value="false">
+                                    <Setter Property="HorizontalAlignment" Value="Left" TargetName="message"/>
+                                    <Setter Property="Background" Value="Teal" TargetName="chatborder"/>
+                                    <Setter Property="FlowDirection" Value="RightToLeft" TargetName="FullMessage"/>
+                                    <Setter Property="FlowDirection" Value="LeftToRight" TargetName="avatar"/>
+                                    <Setter Property="FlowDirection" Value="LeftToRight" TargetName="textMessage"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+        </Grid>
+        <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 materialDesign:HintAssist.Hint="Enter your message"
+                 materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"
+                 materialDesign:HintAssist.FloatingScale="0.50"
+                 MinWidth="200"
+                 FontSize="20"
+                 x:Name="textBoxMessage"
+                 KeyDown="enterMessage">
+        </TextBox>
+        <Button Grid.Column="2" Grid.Row="2"
+                FontSize="20" Click="sendMessage" Height="40" Width="75" HorizontalAlignment="Right" VerticalAlignment="Center">
+            Send
+        </Button>
+    </Grid>
+</Page>

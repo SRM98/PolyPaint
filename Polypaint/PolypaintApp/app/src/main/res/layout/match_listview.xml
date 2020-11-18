@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/match_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textAllCaps="true"
+        android:textSize="20pt"
+        android:padding="5dp"
+        android:fontFamily=""
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/match_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/match_name"
+        android:text="Status"
+        android:textSize="15pt"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="100dp"/>
+
+    <TextView
+        android:id="@+id/match_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/match_status"
+        android:text="1/4"
+        android:textSize="15pt"
+        android:layout_centerVertical="true"
+        android:paddingLeft="20dp"
+        />
+
+
+</RelativeLayout>

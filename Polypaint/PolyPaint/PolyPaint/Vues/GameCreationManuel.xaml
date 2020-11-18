@@ -1,0 +1,107 @@
+﻿<Page x:Class="PolyPaint.Vues.GameCreationManuel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PolyPaint.Vues"
+        mc:Ignorable="d"
+        Title="GameCreationManuel" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Margin="0,0,0,0.4" Grid.RowSpan="2" Grid.ColumnSpan="4">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF34268A" Offset="1"/>
+                    <GradientStop Color="#FF33288B" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="123*"></ColumnDefinition>
+                <ColumnDefinition Width="123*"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="123*"></ColumnDefinition>
+                <ColumnDefinition Width="13*"></ColumnDefinition>
+                <ColumnDefinition Width="110*"/>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel 
+                Grid.Column="0" Margin="10,0,10.333,0">
+                <Label Content="Word to guess" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
+                <TextBox
+                Background="AliceBlue" Foreground="Black" FontSize="10"
+                x:Name="wordToGuess"
+                ></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1"  Margin="9.667,0">
+                <Label Content="Add clue" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
+                <TextBox
+                Background="AliceBlue" Foreground="Black" FontSize="10"
+                x:Name="clue"
+            ></TextBox>
+            </StackPanel>
+            <Button Grid.Column="2" Grid.Row="0"
+                Margin="10.333,19,9.667,19" Background="White"
+                Foreground="Black" Content="Add"
+                Click="addClue"
+            ></Button>
+            <StackPanel Grid.Row="0" Grid.Column="3" Margin="10.333,0,10,0">
+                <Label Content="Game difficulty" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="difficulty"
+                Background="AliceBlue" Foreground="Black" FontSize="10"
+                >
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Easy</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Intermediate</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Difficult</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="4" Margin="10,0,10.333,0" Grid.ColumnSpan="2">
+                <Label Content="Drawing mode" Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="drawingMode"
+                Background="AliceBlue" Foreground="Black" FontSize="10"
+                >
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Random</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Panoramic top to bottom</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Panoramic bottom to top</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Panoramic left to right</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Panoramic right to left</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Going from center</ComboBoxItem>
+                    <ComboBoxItem HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                >Going to center</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <Button Grid.Column="5" Grid.Row="0"
+                    Background="White" Foreground="Black" 
+                    Content="Submit" Click="submit" Grid.ColumnSpan="2" Margin="109.667,19,0.333,19"
+            ></Button>
+        </Grid>
+        <Frame Grid.Row="1" x:Name="DrawingFrame"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="98,41,0,0" VerticalAlignment="Top"/>
+    </Grid>
+
+</Page>

@@ -1,0 +1,4 @@
+{
+    "port": 4200,
+    "REQUEST_TIMEOUT": 10000
+}

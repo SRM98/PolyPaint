@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Polypaint App</string>
+
+    <!-- Lobby Strings   -->
+    <string name="item_lobby">Lobby</string>
+    <string name="item_freeDraw">Free Draw</string>
+    <string name="item_settings">Settings</string>
+    <string name="item_leaderBoard">Leaderboard</string>
+    <string name="item_signOut">Sign Out</string>
+    <string name = "openDrawer">Open Drawer</string>
+    <string name = "closeDrawer">Close Drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_language">Languages</string>
+</resources>
